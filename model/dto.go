@@ -12,19 +12,19 @@ func init() {
 }
 
 type Car struct {
-	Name     string
-	CarDoor  *Door
-	CarWheel *Wheel
+	Name     string `json:"name"`
+	CarDoor  *Door  `json:"door"`
+	CarWheel *Wheel `json:"wheel"`
 }
 
 type Door struct {
-	Age  int
-	Name string
+	Age  int    `json:"age"`
+	Name string `json:"name"`
 }
 
 type Wheel struct {
-	Count int
-	Name  string
+	Count int    `json:"count"`
+	Name  string `json:"name"`
 }
 
 func NewCar(idx int) *Car {

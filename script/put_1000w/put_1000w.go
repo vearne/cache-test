@@ -22,10 +22,11 @@ func main() {
 			for k := x * 10000; k < (x+1)*10000; k++ {
 				// No need to set content type, if you have client level setting
 				key := fmt.Sprintf("key%v", k)
+				fmt.Println("key", key, k)
 				_, err := client.R().
 					SetHeader("Content-Type", "application/json").
 					SetBody(model.NewCar(k)).
-					Put("http://10.128.249.36:8080/api/put/" + key)
+					Put("http://localhost:8080/api/put/" + key)
 
 				if err != nil {
 					log.Println("err", err)

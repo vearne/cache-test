@@ -29,6 +29,7 @@ func main() {
 	g.GET("/get/:key", func(c *gin.Context) {
 		keyStr := c.Param("key")
 		value := cache.Get(keyStr)
+		log.Println("get", keyStr, value)
 		c.JSON(http.StatusOK, gin.H{
 			"data": value,
 		})
@@ -36,6 +37,8 @@ func main() {
 	g.PUT("/put/:key", func(c *gin.Context) {
 		keyStr := c.Param("key")
 		var car model.Car
+		car.CarWheel = &model.Wheel{}
+		car.CarDoor = &model.Door{}
 		err := c.BindJSON(&car)
 		if err != nil {
 			fmt.Println("error", err)
