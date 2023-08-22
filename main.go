@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/vearne/cache-test/model"
 	"github.com/vearne/coolcache"
 	"log"
@@ -13,7 +14,7 @@ import (
 
 func main() {
 	go func() {
-		log.Println(http.ListenAndServe(":9090", nil))
+		log.Println(http.ListenAndServe(":18080", nil))
 	}()
 	cache := coolcache.NewCache(
 		coolcache.WithName("mycache"),
@@ -21,6 +22,7 @@ func main() {
 		coolcache.WithShardNumber(1000),
 	)
 	r := gin.Default()
+	r.GET("/metrics", gin.WrapH(promhttp.Handler()))
 	g := r.Group("/api")
 	g.GET("/get/:key", func(c *gin.Context) {
 		keyStr := c.Param("key")
