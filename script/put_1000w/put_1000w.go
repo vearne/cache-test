@@ -26,7 +26,7 @@ func main() {
 				_, err := client.R().
 					SetHeader("Content-Type", "application/json").
 					SetBody(model.NewCar(k)).
-					Put("http://localhost:8080/api/put/" + key)
+					Put("http://10.128.249.36:8080/api/put/" + key)
 
 				if err != nil {
 					log.Println("err", err)
