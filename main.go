@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
+	"github.com/vearne/cache-test/middleware"
 	"github.com/vearne/cache-test/model"
 	"github.com/vearne/coolcache"
 	"log"
@@ -24,6 +25,7 @@ func main() {
 	r := gin.Default()
 	r.GET("/metrics", gin.WrapH(promhttp.Handler()))
 	g := r.Group("/api")
+	g.Use(middleware.Metric())
 	g.GET("/get/:key", func(c *gin.Context) {
 		keyStr := c.Param("key")
 		value := cache.Get(keyStr)
