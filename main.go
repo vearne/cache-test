@@ -43,7 +43,7 @@ func main() {
 		if err != nil {
 			fmt.Println("error", err)
 		} else {
-			cache.Set(keyStr, &car, 30*time.Minute)
+			cache.Set(keyStr, &car, 3*time.Hour)
 		}
 		c.JSON(http.StatusOK, gin.H{
 			"message": "ok",
