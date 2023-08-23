@@ -42,5 +42,5 @@ func Metric() gin.HandlerFunc {
 
 func parsePath(path string) string {
 	itemList := strings.Split(path, "/")
-	return strings.Join(itemList[0:3], "/")
+	return strings.Join(itemList[0:4], "/")
 }

@@ -6,6 +6,7 @@ import (
 	"github.com/vearne/cache-test/model"
 	"golang.org/x/sync/errgroup"
 	"log"
+	"time"
 )
 
 func main() {
@@ -20,6 +21,7 @@ func main() {
 			// POST JSON string
 			client := resty.New()
 			for k := x * 10000; k < (x+1)*10000; k++ {
+				time.Sleep(50 * time.Millisecond)
 				// No need to set content type, if you have client level setting
 				key := fmt.Sprintf("key%v", k)
 				//fmt.Println("key", key, k)
