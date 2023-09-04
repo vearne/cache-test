@@ -109,8 +109,8 @@ github.com/twitchyliquid64/golang-asm v0.15.1 h1:SU5vSMR7hnwNxj24w34ZyCi/FmDZTkS
 github.com/twitchyliquid64/golang-asm v0.15.1/go.mod h1:a1lVb/DtPvCB8fslRZhAngC2+aY1QWCk3Cedj/Gdt08=
 github.com/ugorji/go/codec v1.2.11 h1:BMaWp1Bb6fHwEtbplGBGJ498wD+LKlNSl25MjdZY4dU=
 github.com/ugorji/go/codec v1.2.11/go.mod h1:UNopzCgEMSXjBc6AOMqYvWC1ktqTAfzJZUZgYf6w6lg=
-github.com/vearne/coolcache v0.0.1 h1:WGiYaUC3I6LglWpug4pNNfqupKwCTgl9nuzZWgCXFp8=
-github.com/vearne/coolcache v0.0.1/go.mod h1:rE6Hqs0RsbxvfjW9DHQwEt3Fqz3W6lY98YQtFj3RzwY=
+github.com/vearne/coolcache v0.0.2 h1:r2J/Y+8HG5MobitwtdYmc72FcOMkERe2Fd7dVWfV0oc=
+github.com/vearne/coolcache v0.0.2/go.mod h1:rE6Hqs0RsbxvfjW9DHQwEt3Fqz3W6lY98YQtFj3RzwY=
 github.com/vearne/golib v0.1.10 h1:ateu+qmCPUu0iy/lnqB1bLtXqLQckMxJx8yGOsfUslo=
 github.com/vearne/golib v0.1.10/go.mod h1:ugjd9gnkwHhwsGPGTWCPN/qn/maywLMNxsKzuaKSx1E=
 github.com/vearne/simplelog v0.0.1 h1:N/nQ1cLpJIVIRfWn4Ccv2nhETxq1lMC1u79yy714dUg=

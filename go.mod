@@ -6,7 +6,7 @@ require (
 	github.com/gin-gonic/gin v1.9.1
 	github.com/go-resty/resty/v2 v2.7.0
 	github.com/prometheus/client_golang v1.16.0
-	github.com/vearne/coolcache v0.0.1
+	github.com/vearne/coolcache v0.0.2
 	github.com/vearne/golib v0.1.10
 	golang.org/x/sync v0.3.0
 )

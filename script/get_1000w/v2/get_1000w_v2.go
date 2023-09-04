@@ -3,37 +3,31 @@ package main
 import (
 	"fmt"
 	"github.com/go-resty/resty/v2"
-	"github.com/vearne/cache-test/model"
 	"golang.org/x/sync/errgroup"
 	"log"
-	"time"
 )
 
+const host = "192.168.2.100:8080"
+
 func main() {
-	//bt, _ := json.Marshal(model.NewCar(11))
-	//fmt.Println(string(bt))
 	g := new(errgroup.Group)
 	g.SetLimit(100)
 
+	url := fmt.Sprintf("http://%v/api/v1/get/", host)
 	for i := 0; i < 1000; i++ {
 		x := i
 		g.Go(func() error {
 			// POST JSON string
 			client := resty.New()
 			for k := x * 10000; k < (x+1)*10000; k++ {
-				time.Sleep(50 * time.Millisecond)
-				// No need to set content type, if you have client level setting
+				//time.Sleep(50 * time.Millisecond)
 				key := fmt.Sprintf("key%v", k)
-				//fmt.Println("key", key, k)
-				_, err := client.R().
-					SetHeader("Content-Type", "application/json").
-					SetBody(model.NewCar(k)).
-					Put("http://10.128.249.36:8080/api/put/" + key)
-
+				resp, err := client.R().
+					Get(url + key)
 				if err != nil {
 					log.Println("err", err)
 				} else {
-					//fmt.Println("resp", resp.String())
+					fmt.Println("resp", resp.String())
 				}
 			}
 			return nil

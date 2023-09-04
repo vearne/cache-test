@@ -5,23 +5,25 @@ import (
 	"github.com/go-resty/resty/v2"
 	"golang.org/x/sync/errgroup"
 	"log"
-	"time"
 )
+
+const host = "192.168.2.100:8080"
 
 func main() {
 	g := new(errgroup.Group)
 	g.SetLimit(100)
 
+	url := fmt.Sprintf("http://%v/api/v1/get/", host)
 	for i := 0; i < 1000; i++ {
 		x := i
 		g.Go(func() error {
 			// POST JSON string
 			client := resty.New()
 			for k := x * 10000; k < (x+1)*10000; k++ {
-				time.Sleep(50 * time.Millisecond)
+				//time.Sleep(50 * time.Millisecond)
 				key := fmt.Sprintf("key%v", k)
 				resp, err := client.R().
-					Get("http://10.128.249.36:8080/api/get/" + key)
+					Get(url + key)
 				if err != nil {
 					log.Println("err", err)
 				} else {

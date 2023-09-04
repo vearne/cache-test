@@ -13,8 +13,6 @@ const (
 	PromLabelMethod = "method" //http method
 	PromLabelPath   = "path"   //http path
 	PromLabelStatus = "status" //http response status
-	PromLabelCode   = "code"   //response error code
-	PromLabelFirm   = "firm"   //response error code
 )
 
 // Metric metric middleware
